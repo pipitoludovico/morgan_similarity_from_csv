@@ -1,3 +1,5 @@
+import sys
+
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit import DataStructs
@@ -8,7 +10,6 @@ class Finder:
 
     def __init__(self, pattern=None, df=None, count=None):
         PandasTools.AddMoleculeColumnToFrame(df, smilesCol='Smiles')
-        print(df)
         self.ref_smiles = pattern
         self.ref_mol = Chem.MolFromSmiles(self.ref_smiles)
 
@@ -33,4 +34,4 @@ class Finder:
 
         # PandasTools.FrameToGridImage(df.head(10), legendsCol="Tanimoto_Similarity (ECFP4)", molsPerRow=4)
 
-        PandasTools.SaveXlsxFromFrame(df, f'test{count}.xlsx', molCol='ROMol')
+        PandasTools.SaveXlsxFromFrame(df, f'{sys.argv[2]}_{count}.xlsx', molCol='ROMol')
