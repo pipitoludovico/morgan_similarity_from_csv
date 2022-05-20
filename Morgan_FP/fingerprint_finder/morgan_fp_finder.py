@@ -34,4 +34,4 @@ class Finder:
 
         # PandasTools.FrameToGridImage(df.head(10), legendsCol="Tanimoto_Similarity (ECFP4)", molsPerRow=4)
 
-        PandasTools.SaveXlsxFromFrame(df, f'{sys.argv[2]}_{count}.xlsx', molCol='ROMol')
+        PandasTools.SaveXlsxFromFrame(df, f'{sys.argv[2].replace(".pdb","")}_{count}.xlsx', molCol='ROMol')
